@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-bar
+spec:
+  selector:
+    matchLabels:
+      app: otel-bar
+  template:
+    metadata:
+      labels:
+        app: otel-bar
+    spec:
+      containers:
+      - name: otel-bar
+        image: docker.bviwit.io/devops/otel-bar:latest
+        ports:
+        - containerPort: 5488
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /app/config.yaml
+          name: otel-bar-vol
+          subPath: config.yaml
+      imagePullSecrets:
+      - name: harbor
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: otel-bar
+        name: otel-bar-vol

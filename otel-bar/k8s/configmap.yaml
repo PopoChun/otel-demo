@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otel-bar
+  labels:
+    app: otel-bar
+data:
+  config.yaml: |
+    HTTP_PORT: ":5488"
+    OTEL_COLLECTOR_HOST: opentelemetry-collector.otl:4317
