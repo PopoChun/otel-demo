@@ -1,0 +1,8 @@
+http:
+  port: ":9453"
+
+bar:
+  host: http://localhost:8080
+
+otel_collector:
+  host: localhost:4317
