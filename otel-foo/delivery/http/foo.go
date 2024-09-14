@@ -42,7 +42,10 @@ func (f *fooHandler) SayHello(c *gin.Context) {
 }
 
 func (f *fooHandler) Ping(c *gin.Context) {
-	metrics.ApiPingRequestCount.Add(c.Request.Context(), 1, metrics.CommonLabels...)
+	metrics.ApiPingRequestCount.Add(
+		c.Request.Context(),
+		1,
+	)
 	span := trace.SpanFromContext(c.Request.Context())
 	span.SetAttributes(attribute.String("hanlder", "fooHandler"))
 	span.AddEvent("test event calling /ping", trace.WithAttributes(attribute.Int("intVal", 1234), attribute.String("stringVal", "xoxo")))
