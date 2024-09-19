@@ -5,4 +5,4 @@ bar:
   host: http://localhost:8080
 
 otel_collector:
-  host: localhost:4317
+  host: localhost:4327

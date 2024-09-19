@@ -1,5 +1,9 @@
 # otel-demo
 
-OpenTelemetry Demo: Send trace data to Grafana Tempo.
+OpenTelemetry Demo: client <---> server
+                             |
+                             ⭣
+                        otel-collector --> grafana tempo (visualization) 
+                              
 
-Including k8s manifest files for deployment.
+Both services including k8s manifest files for deployment.
